@@ -1,19 +1,39 @@
-# Métricas de evaluación: Accuracy, Precision y Recall
+# Métricas de Impacto
 
-En este trabajo usamos el dataset del Titanic, donde la idea es predecir si una persona sobrevive o no. Es un problema simple de clasificación: o sobrevive (1) o no sobrevive (0).
+En este proyecto se evaluaron modelos de clasificación utilizando el dataset de Titanic, cuyo objetivo es predecir si un pasajero sobrevive o no.
 
-Cuando evaluamos un modelo, no alcanza con ver cuántas veces acierta en total. También es importante entender en qué se equivoca, porque no todos los errores son iguales.
+## Métricas consideradas
 
-Por ejemplo:
-- Un falso positivo es cuando el modelo dice que alguien va a sobrevivir pero en realidad no sobrevive.
-- Un falso negativo es cuando el modelo dice que alguien no va a sobrevivir pero en realidad sí sobrevive.
+Para evaluar el rendimiento del modelo se consideran tres métricas principales:
 
-Dependiendo de lo que uno quiera analizar, uno de estos errores puede ser peor que el otro. Por eso no existe una sola métrica “mejor”.
+- Accuracy
+- Precision
+- Recall
 
-La accuracy es la más simple: mide cuántas predicciones fueron correctas en total. El problema es que a veces puede engañar, sobre todo si hay muchos más casos de una clase que de otra.
+### Accuracy
 
-La precision se fija en qué tan confiables son los positivos. O sea, de todos los que el modelo dijo que iban a sobrevivir, cuántos realmente sobrevivieron. Sirve cuando no querés equivocarte diciendo que algo es positivo cuando no lo es.
+La accuracy mide el porcentaje de predicciones correctas sobre el total de observaciones.
 
-El recall, en cambio, se fija en no dejar pasar casos importantes. Mide cuántos de los que realmente sobrevivieron fueron detectados por el modelo. Sirve cuando te importa no perder positivos.
+Es una métrica simple y útil cuando se busca una visión general del rendimiento del modelo.
 
-En resumen, la métrica que conviene usar depende del objetivo. Si querés encontrar la mayor cantidad posible de sobrevivientes, te conviene mirar recall. Si querés que tus predicciones sean más confiables, te conviene precision. Y la accuracy sirve como referencia general, pero no alcanza por sí sola.
+### Precision
+
+La precision indica qué proporción de las predicciones positivas fue correcta.
+
+Es importante en contextos donde los falsos positivos son costosos.
+
+### Recall
+
+El recall mide qué proporción de los casos positivos reales fueron correctamente identificados.
+
+Es clave cuando se busca minimizar los falsos negativos.
+
+## Elección de la métrica
+
+En este trabajo se utiliza la accuracy como métrica principal, ya que permite comparar de forma directa el rendimiento entre diferentes estrategias de validación, como Train/Test Split y Stratified K-Fold.
+
+Dado que el objetivo del laboratorio es analizar la estabilidad y desempeño general del modelo, la accuracy resulta adecuada para evaluar y comparar ambos enfoques.
+
+## Conclusión
+
+Si bien métricas como precision y recall aportan información más específica, la accuracy permite una comparación clara y directa entre los métodos utilizados, siendo suficiente para el objetivo de este análisis.
